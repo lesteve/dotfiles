@@ -1,0 +1,8 @@
+[submodule ".spacemacs.d"]
+	branch = master
+	path = .spacemacs.d
+	url = https://github.com/lesteve/.spacemacs.d
+[submodule ".zprezto"]
+	branch = mine
+	path = .zprezto
+	url = https://github.com/lesteve/prezto

@@ -1,0 +1,45 @@
+[color]
+	ui = true
+[user]
+	email = loic.esteve@ymail.com
+	name = Loïc Estève
+[push]
+	default = simple
+[credential]
+	helper = cache --timeout=3600
+[alias]
+	ci = commit
+	d = diff
+	ds = diff --stat
+	dc = diff --cached
+	st = status -s
+	co = checkout
+	cob = checkout -b
+	
+	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	ll = l -10
+
+	a = add
+	ap = add -p
+
+	# get default branch for master/main compatibility
+	default-branch = "!f() { git remote show ${1:-upstream} | grep 'HEAD branch' | sed 's/.*: //'; }; f"
+	# checkout default branch
+	com = "!git checkout $(git default-branch)"
+	# update default branch ff-only
+	pum = "!git pull --ff-only upstream $(git default-branch)"
+	# rebase on default branch
+	prum = "!git pull --rebase upstream $(git default-branch)"
+	# commit --amend with same commit message
+	ciam = commit --amend -C @
+
+	# check out a PR locally
+	pr  = "!f() { git com && git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+	# clean up PR branches
+	pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+	# list branches sorted by last modified
+	b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+	# list aliases
+	la = "!git config -l | grep alias | cut -c 7-"
+[core]
+	autoclrf = input

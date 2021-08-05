@@ -1,0 +1,143 @@
+IMAPAccount gmx
+# Address to connect to
+Host imap.gmx.com
+User loic.esteve@gmx.com
+AuthMechs LOGIN
+# To store the password in an encrypted file use PassCmd instead of Pass
+PassCmd "pass email/gmx | head -n 1"
+#
+# Use SSL
+SSLType IMAPS
+# The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+#CertificateFile ~/.cert/imap.gmail.com.pem
+#CertificateFile ~/.cert/Equifax_Secure_CA.pem
+
+IMAPStore gmx-remote
+Account gmx
+
+MaildirStore gmx-local
+Subfolders Verbatim
+# The trailing "/" is important
+Path ~/.mail/gmx/
+Inbox ~/.mail/gmx/Inbox
+
+Channel gmx
+Master :gmx-remote:
+Slave :gmx-local:
+# Exclude everything under the internal [Gmx] folder, except the interesting folders
+# Patterns * ![Gmx]* "[Gmx]/Sent Mail" "[Gmx]/Starred" "[Gmx]/All Mail"
+# Or include everything
+Patterns *
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Save the synchronization state files in the relevant directory
+SyncState *
+# Expunge messages marked as deleted
+Expunge Both
+
+IMAPAccount inria
+# Address to connect to
+Host zimbra.inria.fr
+User lesteve
+AuthMechs LOGIN
+# To store the password in an encrypted file use PassCmd instead of Pass
+PassCmd "pass work/inria/main | head -n 1"
+#
+# Use SSL
+SSLType IMAPS
+# The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+#CertificateFile ~/.cert/imap.gmail.com.pem
+#CertificateFile ~/.cert/Equifax_Secure_CA.pem
+
+IMAPStore inria-remote
+Account inria
+
+MaildirStore inria-local
+Subfolders Verbatim
+# The trailing "/" is important
+Path ~/.mail/inria/
+Inbox ~/.mail/inria/Inbox
+
+Channel inria
+Master :inria-remote:
+Slave :inria-local:
+Patterns *
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Save the synchronization state files in the relevant directory
+SyncState *
+# Expunge messages marked as deleted
+Expunge Both
+
+IMAPAccount ymail
+# Address to connect to
+Host imap.mail.yahoo.com
+User loic.esteve@ymail.com
+AuthMechs LOGIN
+# To store the password in an encrypted file use PassCmd instead of Pass
+PassCmd "pass email/ymail-token | head -n 1"
+#
+# Use SSL
+SSLType IMAPS
+# The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+#CertificateFile ~/.cert/imap.gmail.com.pem
+#CertificateFile ~/.cert/Equifax_Secure_CA.pem
+PipelineDepth 1
+
+IMAPStore ymail-remote
+Account ymail
+
+MaildirStore ymail-local
+Subfolders Verbatim
+# The trailing "/" is important
+Path ~/.mail/ymail/
+Inbox ~/.mail/ymail/INBOX
+
+Channel ymail
+Master :ymail-remote:
+Slave :ymail-local:
+Patterns *
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Save the synchronization state files in the relevant directory
+SyncState *
+# Expunge messages marked as deleted
+Expunge Both
+
+IMAPAccount outlook
+# Address to connect to
+Host imap.outlook.com
+User loic.esteve@outlook.com
+AuthMechs LOGIN
+# To store the password in an encrypted file use PassCmd instead of Pass
+PassCmd "pass email/outlook | head -n 1"
+#
+# Use SSL
+SSLType IMAPS
+# The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+#CertificateFile ~/.cert/imap.gmail.com.pem
+#CertificateFile ~/.cert/Equifax_Secure_CA.pem
+
+IMAPStore outlook-remote
+Account outlook
+
+MaildirStore outlook-local
+Subfolders Verbatim
+# The trailing "/" is important
+Path ~/.mail/outlook/
+Inbox ~/.mail/outlook/INBOX
+
+Channel outlook
+Master :outlook-remote:
+Slave :outlook-local:
+Patterns *
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Save the synchronization state files in the relevant directory
+SyncState *
+# Expunge messages marked as deleted
+Expunge Both
