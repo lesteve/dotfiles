@@ -38,7 +38,6 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym Mod5+Control+adiaeresis kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -194,7 +193,7 @@ bindsym $mod+i [class="Firefox"] focus
 bindsym $mod+a [urgent=latest] focus
 
 # An example for a combination of keys
-bindsym $mod+y mode launch
+bindsym $mod+o mode launch
 mode "launch" {
         bindsym o exec emacsclient -c -e '(progn (switch-to-buffer "*scratch*") (my-helm-org-rifle))'; mode "default"
         bindsym c exec emacsclient -e '(my-org-capture-in-new-full-frame)'; mode "default"
@@ -229,8 +228,8 @@ workspace_auto_back_and_forth yes
 set $bg-color #2f343f
 set $text-color #f3f4f5
 
-# run application with rofi
-bindsym $mod+o exec --no-startup-id rofi -show run -lines 20 -eh 1.3 -opacity "90" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$text-color" -hlfg "$bg-color" #-font "System San Francisco Display 10"
+# run application with rofi (reuses dmenu shortcut)
+bindsym $mod+d exec --no-startup-id rofi -show run -lines 20 -eh 1.3 -opacity "90" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$text-color" -hlfg "$bg-color" #-font "System San Francisco Display 10"
 
 # Show opened windows with rofi
 bindsym $mod+u exec --no-startup-id rofi -show window -lines 8 -eh 1.3 -opacity "90" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$text-color" -hlfg "$bg-color"  
