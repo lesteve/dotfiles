@@ -17,6 +17,6 @@ if [ $? = 0 ]; then
     dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} $BACKUP_DIR/{}
 fi;
 dotfiles checkout
-dotfiles submodule update --init
+dotfiles submodule update --init --recursive
 dotfiles config status.showUntrackedFiles no
 ```
