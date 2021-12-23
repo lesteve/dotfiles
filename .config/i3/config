@@ -192,7 +192,7 @@ bindsym $mod+m [class="Emacs"] focus
 bindsym $mod+i [class="Firefox"] focus
 bindsym $mod+a [urgent=latest] focus
 
-# An example for a combination of keys
+# Binding mode for useful shortcuts
 set $mode_launcher Launch: [o]rg-rifle [c]apture c[l]ock-goto
 bindsym $mod+o mode "$mode_launcher"
 mode "$mode_launcher" {
