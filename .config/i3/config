@@ -193,8 +193,9 @@ bindsym $mod+i [class="Firefox"] focus
 bindsym $mod+a [urgent=latest] focus
 
 # An example for a combination of keys
-bindsym $mod+o mode launch
-mode "launch" {
+set $mode_launcher Launch: [o]rg-rifle [c]apture c[l]ock-goto
+bindsym $mod+o mode "$mode_launcher"
+mode "$mode_launcher" {
         bindsym o exec emacsclient -c -e '(progn (switch-to-buffer "*scratch*") (my-helm-org-rifle))'; mode "default"
         bindsym c exec emacsclient -e '(my-org-capture-in-new-full-frame)'; mode "default"
         bindsym l exec emacsclient -e "(progn (select-frame-set-input-focus (selected-frame)) (org-clock-goto))" \
