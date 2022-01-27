@@ -35,6 +35,7 @@
 
 	# check out a PR locally
 	pr  = "!f() { git com && git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+	mr  = "!f() { git com && git fetch -fu ${2:-upstream} refs/merge-requests/$1/head:mr/$1 && git checkout mr/$1; }; f"
 	# clean up PR branches
 	pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 	# list branches sorted by last modified
