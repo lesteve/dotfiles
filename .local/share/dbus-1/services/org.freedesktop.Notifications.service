@@ -1,1 +1,4 @@
-/usr/share/dbus-1/services/org.knopwob.dunst.service
+[D-BUS Service]
+Name=org.freedesktop.Notifications
+Exec=/usr/bin/dunst
+SystemdService=dunst.service
