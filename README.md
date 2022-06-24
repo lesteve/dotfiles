@@ -1,22 +1,10 @@
-To install it on a new computer (adapted from
-https://www.atlassian.com/git/tutorials/dotfiles):
+To install it on a new computer:
 
 ```sh
-GIT_REPO_DIR=$HOME/.dotfiles.git
-BACKUP_DIR=$HOME/.config-backup
+DOTFILES_DIR=$HOME/dev/dotfiles
 
-git clone --bare https://github.com/lesteve/dotfiles $GIT_REPO_DIR
-alias dotfiles="git --git-dir=$GIT_REPO_DIR --work-tree=$HOME"
-
-mkdir -p $BACKUP_DIR
-dotfiles checkout
-if [ $? = 0 ]; then
-  echo "Checked out dotfiles.";
-  else
-    echo "Backing up pre-existing dot files.";
-    dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} $BACKUP_DIR/{}
-fi;
-dotfiles checkout
-dotfiles submodule update --init --recursive
-dotfiles config status.showUntrackedFiles no
+git clone --recursive https://github.com/lesteve/dotfiles $DOTFILES_DIR
+stow --target ~ --dir $DOTFILES_DIR -S .
+# TODO there will be some errors if files already exists
 ```
+
