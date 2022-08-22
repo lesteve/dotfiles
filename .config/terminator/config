@@ -4,7 +4,7 @@
 [profiles]
   [[default]]
     cursor_color = "#aaaaaa"
-    font = Bitstream Vera Sans Mono 10
+    font = SauceCodePro Nerd Font Mono 10
     scrollback_lines = 10000
     palette = "#2e3436:#cc0000:#4e9a06:#917700:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
     use_system_font = False
