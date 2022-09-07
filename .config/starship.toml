@@ -7,7 +7,7 @@ $git_state\
 $git_status\
 $cmd_duration\
 $line_break\
-$python\
+${custom.virtual_or_conda_env}\
 $character"""
 
 [directory]
@@ -23,6 +23,8 @@ format = "[$branch]($style)"
 style = "bright-black"
 
 [git_status]
+# I don't use $untracked in format because I often do not care that much about
+# untracked files
 format = "[[(*$conflicted$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
 style = "cyan"
 conflicted = "​"
@@ -41,6 +43,9 @@ style = "bright-black"
 format = "[$duration]($style) "
 style = "yellow"
 
-[python]
-format = "[$virtualenv]($style) "
+[custom.virtual_or_conda_env]
+# starship has python for virtual environment and conda for conda environment
+# but to combine both it seems like I need a custom command
+command = "[[ -n $VIRTUAL_ENV ]] && echo $(basename $VIRTUAL_ENV) || echo $CONDA_DEFAULT_ENV"
+when = true
 style = "bright-black"
