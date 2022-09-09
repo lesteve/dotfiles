@@ -23,8 +23,8 @@ Path ~/.mail/gmx/
 Inbox ~/.mail/gmx/Inbox
 
 Channel gmx
-Master :gmx-remote:
-Slave :gmx-local:
+Far :gmx-remote:
+Near :gmx-local:
 # Exclude everything under the internal [Gmx] folder, except the interesting folders
 # Patterns * ![Gmx]* "[Gmx]/Sent Mail" "[Gmx]/Starred" "[Gmx]/All Mail"
 # Or include everything
@@ -61,8 +61,8 @@ Path ~/.mail/inria/
 Inbox ~/.mail/inria/Inbox
 
 Channel inria
-Master :inria-remote:
-Slave :inria-local:
+Far :inria-remote:
+Near :inria-local:
 Patterns *
 # Automatically create missing mailboxes, both locally and on the server
 Create Both
@@ -97,8 +97,8 @@ Path ~/.mail/ymail/
 Inbox ~/.mail/ymail/INBOX
 
 Channel ymail
-Master :ymail-remote:
-Slave :ymail-local:
+Far :ymail-remote:
+Near :ymail-local:
 Patterns *
 # Automatically create missing mailboxes, both locally and on the server
 Create Both
@@ -132,8 +132,8 @@ Path ~/.mail/outlook/
 Inbox ~/.mail/outlook/INBOX
 
 Channel outlook
-Master :outlook-remote:
-Slave :outlook-local:
+Far :outlook-remote:
+Near :outlook-local:
 Patterns *
 # Automatically create missing mailboxes, both locally and on the server
 Create Both
