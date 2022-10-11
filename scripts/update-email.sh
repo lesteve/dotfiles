@@ -1,7 +1,11 @@
 #!/bin/bash
 set -e
 
-mbsync -a -V > /tmp/mbsync.log 2>&1
+if [[ "$1" == "quick" ]]; then
+    mbsync -V inria:INBOX outlook:INBOX gmx:INBOX ymail:INBOX > /tmp/mbsync-quick.log 2>&1
+else
+    mbsync -a -V > /tmp/mbsync.log 2>&1
+fi
 
 # mu server is started by mu4e. If it exists mu index can not start with a
 # "Unable to get write lock". Adapted from
