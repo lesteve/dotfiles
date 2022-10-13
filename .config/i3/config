@@ -170,8 +170,12 @@ bar {
         tray_output primary
 }
 
+# Add some applets to the system tray
+# NetworkManager
 exec --no-startup-id nm-applet
+# Bluetooth
 exec --no-startup-id blueman-applet
+# Sound
 exec  --no-startup-id pasystray
 
 # This should go in .xinitrc or maybe in .profile or somewhere else ??
