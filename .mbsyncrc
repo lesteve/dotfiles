@@ -99,7 +99,7 @@ Inbox ~/.mail/ymail/INBOX
 Channel ymail
 Far :ymail-remote:
 Near :ymail-local:
-Patterns *
+Patterns * !Archive !Draft !Trash
 # Automatically create missing mailboxes, both locally and on the server
 Create Both
 # Save the synchronization state files in the relevant directory
