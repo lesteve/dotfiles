@@ -1,0 +1,5 @@
+# org-pomodoro info
+[org-pomodoro]
+command=bash -c 'echo ${0:1:-1}' "$(emacsclient -e '(my-org-pomodoro-info))')"
+interval=5
+

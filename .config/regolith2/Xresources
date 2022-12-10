@@ -1,0 +1,23 @@
+! Disable Win-Shift-q which I hit too often by accident
+i3-wm.binding.exit_app: nop
+
+! Change a to Shift-a because I want to use a to focus on urgent window
+i3-wm.binding.focus_parent: Shift+a
+
+! I do not use this often enough to take the i shortcut
+i3-wm.binding.bar_toggle: Shift+i
+
+! wallpaper
+regolith.wallpaper.file: ~/Pictures/2018-doigt-de-dieu-la-meije.jpg
+regolith.wallpaper.options: scaled
+
+! Disable Settings-related shortcuts (Control Center)
+! If I use nop for every settings, there are some i3 errors me that there are
+! duplicate key bindings
+i3-wm.binding.bluetooth: nop_bluetooth
+i3-wm.binding.settings: nop_settings
+i3-wm.binding.display: nop_display
+i3-wm.binding.wifi: nop_wifi
+
+! Set inner gaps to 0
+i3-wm.gaps.inner.size: 0

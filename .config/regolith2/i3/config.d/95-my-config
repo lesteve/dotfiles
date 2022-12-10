@@ -1,0 +1,117 @@
+# -*- mode: conf -*-
+
+# TODO workspace names better way in regolith? Maybe not important enough
+# https://regolith-desktop.com/docs/howtos/change-workspace-icons/
+# set $ws1  "1:  "
+# set $ws2  "2:  "
+# set $ws3  "3:  "
+# set $ws4  "4: "
+# set $ws5  "5:  "
+# set $ws6  "6:  "
+# set $ws7  "7:  "
+# set $ws8  "8:  "
+# set $ws9  "9:  "
+# set $ws10 "10: "
+
+# TODO this does not work I use i3bar for my pomodoro task, not that I use it very often ...
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+# bar {
+#         status_command i3xrocks -c ~/.config/i3/i3blocks.conf
+#         tray_output primary
+# }
+
+# Add some applets to the system tray
+# NetworkManager
+exec --no-startup-id nm-applet
+# Bluetooth
+exec --no-startup-id blueman-applet
+
+# Keyboard it could be a dconf thing
+exec_always --no-startup-id setxkbmap -option "caps:escape" -layout us -variant altgr-intl
+
+# Load dconf settings for system settings tweaks
+exec_always --no-startup-id dconf load / < ~/.config/regolith2/dconf
+
+# TODO turn off screen power management, probably better to use dconf settings for this ...
+exec_always --no-startup-id xset -dpms
+# Control-AltGr-v clipboard manager (diodon)
+bindsym Control+Mod5+registered exec diodon
+
+# kill focused window (AltGr Control q)
+# A bit complicated with my altgr variant keyboard, got this from:
+# https://github.com/i3/i3/issues/2717#issuecomment-289753285 
+bindsym Mod5+Control+adiaeresis kill
+
+bindsym $mod+m [class="Emacs"] focus
+bindsym $mod+i [class="firefox"] focus
+bindsym $mod+a [urgent=latest] focus
+
+# Binding mode for useful shortcuts
+set $mode_launcher Launch: [c]apture calen[d]ar c[l]ock-goto [o]rg-rifle  
+bindsym $mod+o mode "$mode_launcher"
+mode "$mode_launcher" {
+        bindsym c exec emacsclient -e '(my-org-capture-in-new-full-frame)'; mode "default"
+        bindsym d exec emacsclient -c -e '(cfw:open-org-calendar)'; mode "default"
+        bindsym l exec emacsclient -e "(progn (select-frame-set-input-focus (selected-frame)) (org-clock-goto))" \
+            && i3-msg "[urgent=latest] focus"; \
+            mode "default"
+        bindsym o exec emacsclient -c -e '(progn (switch-to-buffer "*scratch*") (my-helm-org-rifle))';\
+            mode "default"
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+set $settings_mode_launcher Settings: [b]luetooth [d]isplay [s]ettings [w]ifi
+bindsym $mod+s mode "$settings_mode_launcher"
+mode "$settings_mode_launcher" {
+        bindsym b exec regolith-control-center bluetooth --class floating_window; mode "default"
+        bindsym d exec regolith-control-center display --class floating_window; mode "default"
+        bindsym s exec regolith-control-center --class floating_window; mode "default"
+        bindsym w exec regolith-control-center wifi --class floating_window; mode "default"
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# print screen
+bindsym Print exec --no-startup-id flameshot gui
+
+# Go back to previous workspace with same number
+workspace_auto_back_and_forth yes
+
+# toggle tiling / floating
+bindsym $mod+q floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+Shift+q focus mode_toggle
+
+# make it easier to notice which window is focused
+# class                 border  backgr. text    indicator child_border                                                                     
+# this one works but only the one before lasts seems to do anything. Why do I
+# have to do this and why can't I just set indicator
+# client.focused.indicator #000000 #000000 #555555 #dd8a1ec4 #ffffff
+# set $i3-wm.client.focused.color.indicator "#ffff44"
+# set $client.focused.color "#33ffff" 
+# class                 border  backgr. text    indicator child_border                                                                     
+# client.focused_inactive #0d1010 #212121 #d9d9d9 #0d1010 #063340                                                                            
+# client.unfocused        #0d1010 #212121 #d9d9d9 #424242 #063340                                                                            
+# client.focused          #d9d9d9 #cecece #000000 #d9d9d9 #d9d9d9                                                                            
+
+
+# TODO Win+u Win+d to launch quickly or switch to window
+# set $bg-color #2f343f
+# set $text-color #f3f4f5
+
+# # run application with rofi (reuses dmenu shortcut)
+# bindsym $mod+d exec --no-startup-id rofi -show run -lines 20 -eh 1.3 -opacity "90" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$text-color" -hlfg "$bg-color" #-font "System San Francisco Display 10"
+
+# # Show opened windows with rofi
+# bindsym $mod+u exec --no-startup-id rofi -show window -lines 8 -eh 1.3 -opacity "90" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$text-color" -hlfg "$bg-color"  
+
+# Make clearer which window is focused
+default_border pixel 2
+
+# Focus follow mouse
+focus_follows_mouse yes

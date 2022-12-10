@@ -1,0 +1,11 @@
+[org/gnome/desktop/peripherals/mouse]
+left-handed=true
+
+[org/gnome/desktop/peripherals/touchpad]
+speed=0.2
+tap-to-click=true
+two-finger-scrolling-enabled=true
+
+# avoid Control-Shift-u taking precedence over mu4e update email 
+[desktop/ibus/panel/emoji]
+unicode-hotkey=['<Control><Alt><Shift>u'] 
