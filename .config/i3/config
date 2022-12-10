@@ -180,9 +180,11 @@ exec  --no-startup-id pasystray
 
 # This should go in .xinitrc or maybe in .profile or somewhere else ??
 exec_always --no-startup-id setxkbmap -option "caps:escape" -layout us -variant altgr-intl
-exec_always --no-startup-id xmodmap -e "pointer = 3 2 1"
-exec_always --no-startup-id synclient TapButton1=3
-exec_always --no-startup-id synclient PalmDetect=1
+set $touchpad-name "DLL07A0:01 044E:120B"
+# exec_always --no-startup-id xinput set-prop $touchpad-name "libinput Accel Speed" 0.2
+# exec_always --no-startup-id xinput set-prop $touchpad-name "libinput Left Handed Enabled" 1
+# exec_always --no-startup-id xinput set-prop "DLL07A0:01 044E:120B" "libinput Tapping Enabled" 1
+# exec_always --no-startup-id synclient TapButton1=3
 exec_always --no-startup-id xset -dpms
 set $i3lock_color 222222
 # exec_always --no-startup-id xautolock -time 5 -locker "i3lock --color $i3lock_color"
