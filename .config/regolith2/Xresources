@@ -21,3 +21,8 @@ i3-wm.binding.wifi: nop_wifi
 
 ! Set inner gaps to 0
 i3-wm.gaps.inner.size: 0
+
+! Use Win+Space for commands (which I use more often) and Win+Shift+Space for
+! applications (which I use less often)
+i3-wm.binding.launcher.cmd: space
+i3-wm.binding.launcher.app: Shift+space
