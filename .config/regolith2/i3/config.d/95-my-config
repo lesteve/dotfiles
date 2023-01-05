@@ -1,25 +1,48 @@
 # -*- mode: conf -*-
 
-# TODO workspace names better way in regolith? Maybe not important enough
-# https://regolith-desktop.com/docs/howtos/change-workspace-icons/
-# set $ws1  "1:  "
-# set $ws2  "2:  "
-# set $ws3  "3:  "
-# set $ws4  "4: "
-# set $ws5  "5:  "
-# set $ws6  "6:  "
-# set $ws7  "7:  "
-# set $ws8  "8:  "
-# set $ws9  "9:  "
-# set $ws10 "10: "
+# i3 bar copied from /usr/share/regolith/i3/config.d/70_bar with
+# regolith-i3-i3xrocks installed. Not sure if there is an easier way to
+# configure a bar across two separate files ...
 
-# TODO this does not work I use i3bar for my pomodoro task, not that I use it very often ...
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#         status_command i3xrocks -c ~/.config/i3/i3blocks.conf
-#         tray_output primary
-# }
+set_from_resource $i3-wm.bar.position i3-wm.bar.position bottom
+set_from_resource $i3-wm.bar.font i3-wm.bar.font monospace
+set_from_resource $i3-wm.bar.separatorchar i3-wm.bar.separatorchar " "
+set_from_resource $i3-wm.bar.trayoutput i3-wm.bar.trayoutput primary
+set_from_resource $i3-wm.bar.stripworkspacenumbers i3-wm.bar.stripworkspacenumbers yes
+set_from_resource $i3-wm.bar.mode i3-wm.bar.mode dock
+set_from_resource $i3-wm.bar.workspace_min_width i3-wm.bar.workspace_min_width 36
+
+# i3xrocks config file. Override this for a custom status bar generator.
+set_from_resource $i3-wm.bar.status_command i3-wm.bar.status_command i3xrocks -u ~/.config/regolith2/i3xrocks/conf.d -d /usr/share/i3xrocks/conf.d
+
+# The bar configuration
+bar {
+  position $i3-wm.bar.position
+  mode $i3-wm.bar.mode
+  font pango:$i3-wm.bar.font
+  separator_symbol $i3-wm.bar.separatorchar
+  status_command $i3-wm.bar.status_command
+  tray_output $i3-wm.bar.trayoutput
+  strip_workspace_numbers $i3-wm.bar.stripworkspacenumbers
+  workspace_min_width $i3-wm.bar.workspace_min_width
+
+  # Disable mouse on status bar
+  bindsym button1 nop
+  bindsym button4 nop
+  bindsym button5 nop
+
+  colors {
+      background $i3-wm.bar.background.color
+      statusline $i3-wm.bar.statusline.color
+      separator  $i3-wm.bar.separator.color
+
+#                        BORDER  BACKGROUND TEXT
+      focused_workspace  $i3-wm.bar.workspace.focused.border.color      $i3-wm.bar.workspace.focused.background.color   $i3-wm.bar.workspace.focused.text.color
+      active_workspace   $i3-wm.bar.workspace.active.border.color       $i3-wm.bar.workspace.active.background.color    $i3-wm.bar.workspace.active.text.color
+      inactive_workspace $i3-wm.bar.workspace.inactive.border.color     $i3-wm.bar.workspace.inactive.background.color  $i3-wm.bar.workspace.inactive.text.color
+      urgent_workspace   $i3-wm.bar.workspace.urgent.border.color       $i3-wm.bar.workspace.urgent.background.color    $i3-wm.bar.workspace.urgent.text.color
+  }
+}
 
 # Add some applets to the system tray
 # NetworkManager
