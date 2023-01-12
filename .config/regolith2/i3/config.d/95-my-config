@@ -56,6 +56,10 @@ exec_always --no-startup-id setxkbmap -option "caps:escape" -layout us -variant 
 # Load dconf settings for system settings tweaks
 exec_always --no-startup-id dconf load / < ~/.config/regolith2/dconf
 
+# Turn off Caps Lock if enabled (for some reason connecting or deconnecting
+# from screen enables CapsLock again)
+exec_always --no-startup-id bash -c '[[ $(xset -q) =~ (Caps Lock: *on) ]] && xdotool key Caps_Lock'
+
 # TODO turn off screen power management, probably better to use dconf settings for this ...
 exec_always --no-startup-id xset -dpms
 # Control-AltGr-v clipboard manager (diodon)
