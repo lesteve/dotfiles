@@ -11,6 +11,9 @@ i3-wm.binding.bar_toggle: Shift+i
 regolith.wallpaper.file: ~/Pictures/2018-doigt-de-dieu-la-meije.jpg
 regolith.wallpaper.options: scaled
 
+! darker lockscreen
+regolith.lockscreen.wallpaper.color.primary: #050505
+
 ! Disable Settings-related shortcuts (Control Center)
 ! If I use nop for every settings, there are some i3 errors me that there are
 ! duplicate key bindings
@@ -26,3 +29,4 @@ i3-wm.gaps.inner.size: 0
 ! applications (which I use less often)
 i3-wm.binding.launcher.cmd: space
 i3-wm.binding.launcher.app: Shift+space
+
