@@ -65,7 +65,8 @@ exec_always --no-startup-id xset -dpms
 # Control-AltGr-v clipboard manager (diodon)
 bindsym Control+Mod5+registered exec diodon
 
-# kill focused window (AltGr Control q)
+# kill focused window (AltGr Control q), on purpose different from other
+# shortcuts to avoid typing it by mistake
 # A bit complicated with my altgr variant keyboard, got this from:
 # https://github.com/i3/i3/issues/2717#issuecomment-289753285 
 bindsym Mod5+Control+adiaeresis kill
