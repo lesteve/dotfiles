@@ -50,3 +50,5 @@
 	conflictstyle = diff3
 [pull]
 	ff = only
+[init]
+	defaultBranch = main
