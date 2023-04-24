@@ -3,6 +3,7 @@ $username\
 $hostname\
 $directory\
 $git_branch\
+$git_commit\
 $git_state\
 $git_status\
 $cmd_duration\
@@ -21,6 +22,11 @@ vicmd_symbol = "[❮](green)"
 [git_branch]
 format = "[$branch]($style)"
 style = "bright-black"
+
+[git_commit]
+style = "bright-black"
+tag_disabled = false
+tag_symbol = ' '
 
 [git_status]
 # I don't use $untracked in format because I often do not care that much about
