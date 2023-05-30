@@ -1,12 +1,12 @@
 format = """
-$username\
-$hostname\
 $directory\
 $git_branch\
 $git_commit\
 $git_state\
 $git_status\
 $cmd_duration\
+$username\
+$hostname\
 $line_break\
 ${custom.virtual_or_conda_env}\
 $character"""
@@ -48,6 +48,14 @@ style = "bright-black"
 [cmd_duration]
 format = "[$duration]($style) "
 style = "yellow"
+
+[username]
+format = '[$user]($style)'
+style_user = "bright-black"
+
+[hostname]
+format='[@$hostname]($style)'
+style = "bright-black"
 
 [custom.virtual_or_conda_env]
 # starship has python for virtual environment and conda for conda environment
