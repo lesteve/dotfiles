@@ -6,7 +6,7 @@
 [push]
 	default = simple
 [credential]
-	helper=!~/miniconda3/envs/shell-tools/bin/pass-git-helper
+	helper=!pass-git-helper
 [alias]
 	ci = commit
 	d = diff
