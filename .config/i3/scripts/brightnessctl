@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+
+brightnessctl set $1 && notify-send -p -r 12345 "Brightness - $(brightnessctl -m | cut -d, -f4)"
