@@ -218,10 +218,7 @@ bindsym $mod+p exec /usr/local/bin/switch-audio-port
 # This should go in .xinitrc or maybe in .profile or somewhere else ??
 exec_always --no-startup-id setxkbmap -option "caps:escape" -layout us -variant altgr-intl
 set $touchpad-name "SYNA30BB:00 06CB:CE07 Touchpad"
-exec_always --no-startup-id xinput set-prop $touchpad-name "libinput Accel Speed" 0.2
-exec_always --no-startup-id xinput set-prop $touchpad-name "libinput Left Handed Enabled" 1
-set $mouse-name "PIXART USB OPTICAL MOUSE"
-exec_always --no-startup-id xinput set-prop $mouse-name "libinput Left Handed Enabled" 1
+exec_always --no-startup-id ~/scripts/make-all-pointers-left-handed.sh
 
 # TODO how to set mouse left-handedness? Probably need to be generic for the
 # mouse name in an ideal world
