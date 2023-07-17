@@ -214,14 +214,14 @@ bindsym $mod+p exec /usr/local/bin/switch-audio-port
 # configuration for workspace behaviour: #
 ##########################################
 
-
 # This should go in .xinitrc or maybe in .profile or somewhere else ??
 exec_always --no-startup-id setxkbmap -option "caps:escape" -layout us -variant altgr-intl
 set $touchpad-name "SYNA30BB:00 06CB:CE07 Touchpad"
 exec_always --no-startup-id ~/scripts/make-all-pointers-left-handed.sh
 
-# TODO how to set mouse left-handedness? Probably need to be generic for the
-# mouse name in an ideal world
+# Turn off Caps Lock if enabled (for some reason connecting or deconnecting
+# from screen enables CapsLock again ...)
+exec_always --no-startup-id bash -c '[[ $(xset -q) =~ (Caps Lock: *on) ]] && xdotool key Caps_Lock'
 
 # Disable power saving
 exec_always --no-startup-id xset -dpms
@@ -349,7 +349,7 @@ exec --no-startup-id /usr/bin/dunst
 # NetworkManager
 exec --no-startup-id nm-applet
 # Bluetooth
-exec --no-startup-id blueman-applet
+exec --no-startup-id --no-startup-id blueman-applet
 # Sound
 exec  --no-startup-id pasystray
 
