@@ -225,8 +225,6 @@ exec_always --no-startup-id bash -c '[[ $(xset -q) =~ (Caps Lock: *on) ]] && xdo
 
 # Disable power saving
 exec_always --no-startup-id xset -dpms
-# background image
-exec_always --no-startup-id feh --bg-scale $HOME/Pictures/2018-doigt-de-dieu-la-meije.jpg
 
 # Lock the system
 set $i3lock_color 222222
@@ -312,8 +310,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
-# exec --no-startup-id sleep 2 && nitrogen --restore
-exec --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png
+exec_always --no-startup-id feh --bg-scale $HOME/Pictures/2018-doigt-de-dieu-la-meije.jpg
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
