@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# This makes sure my i3 config is loaded, making my mouse left-handed or making
+# CapsLock do Escape, etc ...
+i3-msg restart
+
