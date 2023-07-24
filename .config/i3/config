@@ -350,8 +350,6 @@ exec --no-startup-id --no-startup-id blueman-applet
 # Sound
 exec  --no-startup-id pasystray
 
-
-
 ######################################
 # color settings for bar and windows #
 ######################################
