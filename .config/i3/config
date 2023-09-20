@@ -223,9 +223,6 @@ exec_always --no-startup-id ~/scripts/make-all-pointers-left-handed.sh
 # from screen enables CapsLock again ...)
 exec_always --no-startup-id bash -c '[[ $(xset -q) =~ (Caps Lock: *on) ]] && xdotool key Caps_Lock'
 
-# Disable power saving
-exec_always --no-startup-id xset -dpms
-
 # Lock the system
 set $i3lock_color 222222
 bindsym $mod+Escape exec i3lock --color $i3lock_color
