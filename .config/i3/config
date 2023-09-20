@@ -344,8 +344,6 @@ exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id nm-applet
 # Bluetooth
 exec --no-startup-id --no-startup-id blueman-applet
-# Sound
-exec  --no-startup-id pasystray
 
 ######################################
 # color settings for bar and windows #
