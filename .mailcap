@@ -1,2 +1,2 @@
-application/pdf; okular %s; test=test -n "$DISPLAY"
+application/pdf; evince %s; test=test -n "$DISPLAY"
 
