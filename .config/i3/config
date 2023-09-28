@@ -129,10 +129,11 @@ bindsym $mod+r mode "resize"
 # start a terminal
 bindsym $mod+Return exec terminator
 
-# kill focused window (AltGr Control q)
+# kill focused window (AltGr Control q), disabled for Firefox to prevent
+# accidental killing
 # A bit complicated with my altgr variant keyboard, got this from:
 # https://github.com/i3/i3/issues/2717#issuecomment-289753285
-bindsym Mod5+Control+adiaeresis kill
+bindsym Mod5+Control+adiaeresis [con_id=__focused__ class="^(?!firefox).*$"] kill
 
 # exit-menu
 bindsym $mod+Shift+e exec ~/.config/i3/scripts/powermenu
