@@ -1,3 +1,9 @@
+# Avoid Emails on remote server have the wrong date
+# https://wiki.archlinux.org/title/Isync#Emails_on_remote_server_have_the_wrong_date
+# I probably don't rely on this since I don't move messages around, but it
+# seems like a good idea anyway
+CopyArrivalDate yes
+
 IMAPAccount gmx
 # Address to connect to
 Host imap.gmx.com
