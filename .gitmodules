@@ -1,7 +1,7 @@
 [submodule ".emacs.d"]
-	branch = develop
+	branch = mine
 	path = .emacs.d
-	url = https://github.com/syl20bnr/spacemacs
+	url = https://github.com/lesteve/spacemacs
 [submodule ".spacemacs.d"]
 	branch = master
 	path = .spacemacs.d
