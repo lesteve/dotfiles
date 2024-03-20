@@ -1,2 +1,2 @@
-application/pdf; evince %s; test=test -n "$DISPLAY"
+application/*; xdg-open %s; test=test -n "$DISPLAY"
 
