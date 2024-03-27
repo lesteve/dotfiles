@@ -41,6 +41,10 @@
 	pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 	# list branches sorted by last modified
 	b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+	# diff compared to common parent in upstream default branch (same as github diff)
+	du = diff upstream...
+	# log from common parent in upstream default branch
+	lu  = l upstream..
 	# list aliases
 	la = "!git config -l | grep alias | cut -c 7-"
 [core]
