@@ -3,7 +3,7 @@
 	path = .emacs.d
 	url = https://github.com/lesteve/spacemacs
 [submodule ".spacemacs.d"]
-	branch = master
+	branch = main
 	path = .spacemacs.d
 	url = https://github.com/lesteve/.spacemacs.d
 [submodule ".zprezto"]
