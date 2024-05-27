@@ -1,6 +1,8 @@
 #!/bin/bash
 
+# Somehow the sleep is needed to apply to the external keyboard (plugged to
+# external monitor)?
+sleep 0.5
 # This makes sure my i3 config is loaded, making my mouse left-handed or making
 # CapsLock do Escape, etc ...
 i3-msg restart
-
