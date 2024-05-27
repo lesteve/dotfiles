@@ -147,3 +147,37 @@ Create Both
 SyncState *
 # Expunge messages marked as deleted
 Expunge Both
+
+IMAPAccount probabl
+# Address to connect to
+Host imap.gmail.com
+SSLType IMAPS
+AuthMechs LOGIN
+User loic@probabl.ai
+PassCmd "pass work/probabl/mbsync-credentials | head -n1"
+# Use SSL
+SSLType IMAPS
+# The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+#CertificateFile ~/.cert/imap.gmail.com.pem
+#CertificateFile ~/.cert/Equifax_Secure_CA.pem
+
+IMAPStore probabl-remote
+Account probabl
+
+MaildirStore probabl-local
+Subfolders Verbatim
+# The trailing "/" is important
+Path ~/.mail/probabl/
+Inbox ~/.mail/probabl/INBOX
+
+Channel probabl
+Far :probabl-remote:
+Near :probabl-local:
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Save the synchronization state files in the relevant directory
+SyncState *
+# Expunge messages marked as deleted
+Expunge Both
+Patterns * !"[Gmail]/All Mail" !"[Gmail]/Important" !"[Gmail]/Starred" !"[Gmail]/Bin"
