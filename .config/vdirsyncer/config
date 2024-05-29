@@ -1,0 +1,34 @@
+[general]
+status_path = "~/.local/share/vdirsyncer/status/"
+
+[pair zimbra]
+a = "zimbra_local"
+b = "zimbra_remote"
+collections = ["from a", "from b"]
+
+[storage zimbra_local]
+type = "filesystem"
+path = "/home/lesteve/.local/share/khal/calendars/zimbra"
+fileext = ".ics"
+
+[storage zimbra_remote]
+type = "caldav"
+url = "https://zimbra.inria.fr"
+username = "lesteve"
+password.fetch = ["shell", "pass work/inria/main | head -n1"]
+
+[pair google]
+a = "google_local"
+b = "google_remote"
+collections = ["from a", "from b"]
+
+[storage google_local]
+type = "filesystem"
+path = "/home/lesteve/.local/share/khal/calendars/google"
+fileext = ".ics"
+
+[storage google_remote]
+type = "google_calendar"
+token_file = "/tmp/vdirsyncer-google-token"
+client_id.fetch = ["shell", "pass work/probabl/vdirsyncer-credentials | grep client_id | perl -pe 's@client_id: @@'"]
+client_secret.fetch = ["shell", "pass work/probabl/vdirsyncer-credentials | head -n 1"]

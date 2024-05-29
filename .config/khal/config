@@ -1,0 +1,32 @@
+[calendars]
+
+[[private]]
+path = /home/lesteve/.local/share/khal/calendars/zimbra/private
+type = calendar
+color = dark blue
+
+[[Calendar]]
+path = /home/lesteve/.local/share/khal/calendars/zimbra/Calendar
+type = calendar
+color = brown
+
+[[scikit-learn]]
+path = /home/lesteve/.local/share/khal/calendars/google/social.scikitlearn@gmail.com
+type = calendar
+color = light green
+
+[[probabl]]
+path = /home/lesteve/.local/share/khal/calendars/google/loic@probabl.ai
+type = calendar
+color = yellow
+
+[locale]
+timeformat = %H:%M
+dateformat = %Y-%m-%d
+longdateformat = %Y-%m-%d
+datetimeformat = %Y-%m-%d %H:%M
+longdatetimeformat = %Y-%m-%d %H:%M
+
+[default]
+default_calendar = Calendar
+highlight_event_days = True
