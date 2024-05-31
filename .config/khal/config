@@ -10,6 +10,11 @@ path = /home/lesteve/.local/share/khal/calendars/zimbra/Calendar
 type = calendar
 color = brown
 
+[[personal]]
+path = /home/lesteve/.local/share/khal/calendars/framagenda/personal
+type = calendar
+color = dark blue
+
 [[scikit-learn]]
 path = /home/lesteve/.local/share/khal/calendars/google/social.scikitlearn@gmail.com
 type = calendar

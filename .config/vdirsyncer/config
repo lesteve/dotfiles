@@ -17,6 +17,22 @@ url = "https://zimbra.inria.fr"
 username = "lesteve"
 password.fetch = ["shell", "pass work/inria/main | head -n1"]
 
+[pair framagenda]
+a = "framagenda_local"
+b = "framagenda_remote"
+collections = ["from a", "from b"]
+
+[storage framagenda_local]
+type = "filesystem"
+path = "/home/lesteve/.local/share/khal/calendars/framagenda"
+fileext = ".ics"
+
+[storage framagenda_remote]
+type = "caldav"
+url = "https://framagenda.org"
+username = "lesteve"
+password.fetch = ["shell", "pass framagenda.org | head -n1"]
+
 [pair google]
 a = "google_local"
 b = "google_remote"
