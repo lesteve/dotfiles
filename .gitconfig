@@ -44,7 +44,6 @@
 	          --format=$'%(color:green)%(refname:short)\t%(color:yellow)%(committerdate:relative)\t%(color:red)%(color:default)%(objectname:short)' refs/heads/ --no-merged \
 	          | sed -e 's-refs/heads/--' \
 	          | column --separator=$'\t' --table --table-columns='Branch Name,Last Commit,Ref'"
-
 	# diff compared to common parent in upstream default branch (same as github diff)
 	du = diff upstream...
 	# log from common parent in upstream default branch
