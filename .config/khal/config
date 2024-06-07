@@ -1,29 +1,19 @@
 [calendars]
 
-[[private]]
-path = /home/lesteve/.local/share/khal/calendars/zimbra/private
-type = calendar
-color = dark blue
-
-[[Calendar]]
-path = /home/lesteve/.local/share/khal/calendars/zimbra/Calendar
-type = calendar
-color = brown
-
 [[personal]]
-path = /home/lesteve/.local/share/khal/calendars/framagenda/personal
+path = ~/.calendars/framagenda/personal
 type = calendar
 color = dark blue
 
 [[scikit-learn]]
-path = /home/lesteve/.local/share/khal/calendars/google/social.scikitlearn@gmail.com
+path = ~/.calendars/probabl/social.scikitlearn@gmail.com
 type = calendar
 color = light green
 
 [[probabl]]
-path = /home/lesteve/.local/share/khal/calendars/google/loic@probabl.ai
+path = ~/.calendars/probabl/loic@probabl.ai
 type = calendar
-color = yellow
+color = brown
 
 [locale]
 timeformat = %H:%M
@@ -33,5 +23,5 @@ datetimeformat = %Y-%m-%d %H:%M
 longdatetimeformat = %Y-%m-%d %H:%M
 
 [default]
-default_calendar = Calendar
+default_calendar = personal
 highlight_event_days = True
