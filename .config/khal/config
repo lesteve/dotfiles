@@ -5,8 +5,13 @@ path = ~/.calendars/framagenda/personal
 type = calendar
 color = dark blue
 
+[[holidays]]
+path = ~/.calendars/holidays
+type = calendar
+color = dark green
+
 [[scikit-learn]]
-path = ~/.calendars/probabl/social.scikitlearn@gmail.com
+path = ~/.calendars/scikit-learn
 type = calendar
 color = light green
 
