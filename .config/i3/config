@@ -127,7 +127,7 @@ bindsym $mod+r mode "resize"
 ######################################
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec kitty
 
 # kill focused window (AltGr Control q), disabled for Firefox to prevent
 # accidental killing
