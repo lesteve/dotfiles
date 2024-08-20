@@ -100,7 +100,7 @@ MaildirStore ymail-local
 Subfolders Verbatim
 # The trailing "/" is important
 Path ~/.mail/ymail/
-Inbox ~/.mail/ymail/INBOX
+Inbox ~/.mail/ymail/Inbox
 
 Channel ymail
 Far :ymail-remote:
