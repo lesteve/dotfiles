@@ -117,9 +117,9 @@ IMAPAccount outlook
 # Address to connect to
 Host imap.outlook.com
 User loic.esteve@outlook.com
-AuthMechs LOGIN
+AuthMechs XOAUTH2
 # To store the password in an encrypted file use PassCmd instead of Pass
-PassCmd "pass email/outlook | head -n 1"
+PassCmd "pizauth show outlook"
 #
 # Use SSL
 SSLType IMAPS
