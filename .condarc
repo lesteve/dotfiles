@@ -1,3 +1,5 @@
 channels:
   - conda-forge
+  - nodefaults
 changeps1: false
+channel_priority: strict
