@@ -40,7 +40,7 @@
 	# clean up PR branches
 	pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 	# list branches sorted by last modified
-	b = "!git for-each-ref --color --sort=-committerdate \
+	b = "!git for-each-ref --color --sort=committerdate \
 	          --format=$'%(color:green)%(refname:short)\t%(color:yellow)%(committerdate:relative)\t%(color:red)%(color:default)%(objectname:short)' refs/heads/ --no-merged \
 	          | sed -e 's-refs/heads/--' \
 	          | column --separator=$'\t' --table --table-columns='Branch Name,Last Commit,Ref'"
