@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -o pipefail
 
 log_file=/tmp/mbsync.log
 
@@ -9,7 +10,7 @@ else
     args="-a"
 fi
 
-mbsync -V $args 2>&1 | tee /tmp/mbsync.log
+mbsync -V $args 2>&1 | tee /tmp/mbsync.log || echo "mbsync issue"
 
 # mu server is started by mu4e. If it exists mu index can not start with a
 # "Unable to get write lock". Adapted from
