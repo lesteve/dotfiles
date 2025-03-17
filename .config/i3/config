@@ -252,7 +252,7 @@ mode "$mode_launcher" {
             mode "default"
         bindsym o exec emacsclient -c -e '(progn (switch-to-buffer "*scratch*") (my-helm-org-rifle))';\
             mode "default"
-        bindsym e exec rofimoji -s neutral; mode "defaut"
+        bindsym e exec rofimoji -s neutral; mode "default"
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
