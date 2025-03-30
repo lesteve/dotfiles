@@ -13,7 +13,7 @@ AuthMechs LOGIN
 PassCmd "pass email/gmx | head -n 1"
 #
 # Use SSL
-SSLType IMAPS
+TLSType IMAPS
 # The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 #CertificateFile ~/.cert/imap.gmail.com.pem
@@ -51,7 +51,7 @@ AuthMechs LOGIN
 PassCmd "pass work/inria/main | head -n 1"
 #
 # Use SSL
-SSLType IMAPS
+TLSType IMAPS
 # The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 #CertificateFile ~/.cert/imap.gmail.com.pem
@@ -86,7 +86,7 @@ AuthMechs LOGIN
 PassCmd "pass email/ymail-token | head -n 1"
 #
 # Use SSL
-SSLType IMAPS
+TLSType IMAPS
 # The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 #CertificateFile ~/.cert/imap.gmail.com.pem
@@ -122,7 +122,7 @@ AuthMechs XOAUTH2
 PassCmd "pizauth show outlook"
 #
 # Use SSL
-SSLType IMAPS
+TLSType IMAPS
 # The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 #CertificateFile ~/.cert/imap.gmail.com.pem
@@ -151,12 +151,12 @@ Expunge Both
 IMAPAccount probabl
 # Address to connect to
 Host imap.gmail.com
-SSLType IMAPS
+TLSType IMAPS
 AuthMechs LOGIN
 User loic@probabl.ai
 PassCmd "pass work/probabl/mbsync-credentials | head -n1"
 # Use SSL
-SSLType IMAPS
+TLSType IMAPS
 # The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 #CertificateFile ~/.cert/imap.gmail.com.pem
