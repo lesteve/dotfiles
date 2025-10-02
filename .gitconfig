@@ -9,13 +9,13 @@
 	helper=!pass-git-helper
 [alias]
 	ci = commit
-	d = diff
+	# using -p cat to avoid the pager
+	d = !ydiff -p cat
 	ds = diff --stat
-	dc = diff --cached
+	dc = !git diff --cached | ydiff -p cat
 	st = status -s
 	co = checkout
 	cob = checkout -b
-	
 	l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	ll = l -10
 
@@ -29,6 +29,7 @@
 	com = "!git checkout $(git default-branch)"
 	# update default branch ff-only
 	pum = "!git pull --ff-only $(git upstream-or-origin) $(git default-branch)"
+
 	# rebase on default branch
 	prum = "!git pull --rebase $(git upstream-or-origin) $(git default-branch)"
 	# commit --amend with same commit message
