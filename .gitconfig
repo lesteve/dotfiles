@@ -46,7 +46,7 @@
 	          | sed -e 's-refs/heads/--' \
 	          | column --separator=$'\t' --table --table-columns='Branch Name,Last Commit,Ref'"
 	# diff compared to common parent in upstream default branch (same as github diff)
-	du = diff upstream...
+	du = d upstream...
 	# log from common parent in upstream default branch
 	lu  = l upstream..
 	# list aliases
