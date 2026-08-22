@@ -4,13 +4,14 @@ set -o pipefail
 
 log_file=/tmp/mbsync.log
 
-if [[ "$1" == "quick" ]]; then
-    args="inria:INBOX outlook:INBOX gmx:INBOX ymail:INBOX"
-else
-    args="-a"
-fi
+# Add missing headers in GMX Inbox new folder. For now missing Date header only
+# happens for GUM emails.
+# If one day this is too slow (I doubt it) you could do something like this:
+# files=$(rg --files-without-match -U -i '^Date:' ~/.mail/gmx/Inbox/new)
+# python ~/scripts/add-missing-date-header-to-email.py ${=files}
+python ~/scripts/add-missing-date-header-to-email.py ~/.mail/gmx/Inbox/new 2>&1 | tee $log_file
 
-mbsync -V $args 2>&1 | tee /tmp/mbsync.log || echo "mbsync issue"
+mbsync -V -a 2>&1 | tee -a $log_file || echo "mbsync issue"
 
 # mu server is started by mu4e. If it exists mu index can not start with a
 # "Unable to get write lock". Adapted from
