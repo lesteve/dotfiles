@@ -216,7 +216,9 @@ bindsym $mod+p exec /usr/local/bin/switch-audio-port
 ##########################################
 
 # This should go in .xinitrc or maybe in .profile or somewhere else ??
-exec_always --no-startup-id setxkbmap -option "caps:escape" -layout us -variant altgr-intl
+# On my laptop the PrintScreen is annoyingly placed and I want it to be Windows instead
+exec_always --no-startup-id sh -c 'setxkbmap -option "caps:escape" -layout us -variant altgr-intl && xmodmap -e "keycode 107 = Super_R" -e "add Mod4 = Super_R"'
+
 set $touchpad-name "SYNA30BB:00 06CB:CE07 Touchpad"
 exec_always --no-startup-id ~/scripts/make-all-pointers-left-handed.sh
 
@@ -258,8 +260,14 @@ mode "$mode_launcher" {
         bindsym Escape mode "default"
 }
 
-# print screen
+# Screenshot with PrintScreen or Ctrl + PrintScreen
 bindsym Print exec --no-startup-id flameshot gui
+# I have a hwdb rule for my Lenovo X11 laptop where PrintScreen is remapped to
+# Windows key because the PrintScreen key is physically annoyingly placed and I
+# keep hitting it by mistake. In this case I want to use Ctrl + PrintScreen,
+# see /etc/udev/hwdb.d/90-lenovo-x11-laptop-keyboard.hwdb
+bindsym Control+Super_R exec --no-startup-id flameshot gui
+
 # Disabling floating for shutter to see if it fixes my losing mouse issues
 # for_window [class="Shutter" instance="shutter"] floating enable
 # for some reason terminator opens in floating mode after i3wm update ...
