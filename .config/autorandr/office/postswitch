@@ -1,0 +1,5 @@
+#!/bin/sh
+printf 'Xft.dpi: 144\n' | xrdb -merge
+
+# Preserve the shared input setup and i3 restart.
+exec "$HOME/.config/autorandr/postswitch"
