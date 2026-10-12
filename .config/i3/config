@@ -269,6 +269,9 @@ bindsym Print exec --no-startup-id flameshot gui
 # see /etc/udev/hwdb.d/90-lenovo-x11-laptop-keyboard.hwdb
 bindsym Control+Super_R exec --no-startup-id flameshot gui
 
+# Copy Codex last answer into clipboard + translate into org-mode
+bindsym --release Control+Shift+o exec --no-startup-id ~/scripts/codex-copy-to-org-mode.sh
+
 # Disabling floating for shutter to see if it fixes my losing mouse issues
 # for_window [class="Shutter" instance="shutter"] floating enable
 # for some reason terminator opens in floating mode after i3wm update ...
