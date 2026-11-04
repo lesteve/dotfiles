@@ -219,7 +219,7 @@ bindsym $mod+p exec /usr/local/bin/switch-audio-port
 # On my laptop the PrintScreen is annoyingly placed and I want it to be Windows instead
 exec_always --no-startup-id sh -c 'setxkbmap -option "caps:escape" -layout us -variant altgr-intl && xmodmap -e "keycode 107 = Super_R" -e "add Mod4 = Super_R"'
 
-set $touchpad-name "SYNA30BB:00 06CB:CE07 Touchpad"
+set $touchpad-name "ELAN067B:00 04F3:31F8 Touchpad"
 exec_always --no-startup-id ~/scripts/make-all-pointers-left-handed.sh
 
 # Turn off Caps Lock if enabled (for some reason connecting or deconnecting
