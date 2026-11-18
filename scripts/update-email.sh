@@ -6,10 +6,12 @@ log_file=/tmp/mbsync.log
 
 mbsync -V -a 2>&1 | tee -a $log_file || echo "mbsync issue"
 
-# Cancel the effect of ymail spam filter, which is not great and auto-deletes
-# messages after 30 days. This moves the ymail/Bulk/new messages to ymail/Inbox/new
+# Cancel the effect of spam filters, which are not great and auto-deletes
+# messages after 30 days.
 find ~/.mail/ymail/Bulk/{cur,new} -maxdepth 1 -type f \
      -exec mv -t ~/.mail/ymail/Inbox/new -- {} +
+find ~/.mail/outlook/Junk/{cur,new} -maxdepth 1 -type f \
+     -exec mv -t ~/.mail/outlook/INBOX/new -- {} +
 
 # Add missing headers in GMX Inbox new folder. For now missing Date header only
 # happens for GUM emails.
